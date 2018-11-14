@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<f:view contentType="text/html" encoding="UTF-8" transient="true">
+    <h:head>
+    </h:head>
+
+    <h:body>
+
+        <style type="text/css">
+
+        </style>
+
+        <h:form id="userForm">
+
+            <p:editor value="#{editor.value}" />
+
+            <p:growl id="growl"/>
+
+            <h3 style="margin-top:0">Basic</h3>
+            <p:panel id="pnl" header="New User" style="margin-bottom:10px;">
+                <p:messages id="messages"/>
+                <h:panelGrid columns="3" cellpadding="5">
+                    <h:outputLabel for="firstname" value="Firstname: *"/>
+                    <p:inputText id="firstname" value="#{userRegisterController.user.firstName}" required="true"
+                                 label="Firstname">
+                        <f:validateLength minimum="2"/>
+                    </p:inputText>
+                    <p:message for="firstname"/>
+
+                    <h:outputLabel for="lastname" value="Lastname: *"/>
+                    <p:inputText id="lastname" value="#{userRegisterController.user.lastName}" required="true"
+                                 label="Lastname"/>
+                    <p:message for="lastname"/>
+                </h:panelGrid>
+
+                <p:commandButton id="saveBtn" value="Save" icon="pi pi-check" style="margin:0"
+                                 action="#{userRegisterController.save}" update="growl"/>
+            </p:panel>
+
+            <p:blockUI block="pnl" trigger="saveBtn"/>
+
+            <h:panelGrid columns="2" cellpadding="5">
+                <p:outputLabel value="firstName:" for="firstName"/>
+                <p:inputText id="firstName" value="#{userRegisterController.user.firstName}"/>
+                <p:outputLabel value="lastName:" for="lastName"/>
+                <p:inputText id="lastName" value="#{userRegisterController.user.lastName}"/>
+                <p:outputLabel value="tel:" for="tel"/>
+                <p:inputText id="tel" value="#{userRegisterController.user.tel}"/>
+                <p:outputLabel value="email:" for="email"/>
+                <p:inputText id="email" value="#{userRegisterController.user.email}"/>
+            </h:panelGrid>
+
+            <p:commandButton id="add" value="save" action="#{userRegisterController.save}"
+                             icon="fa fa-save"/>
+        </h:form>
+
+
+    </h:body>
+</f:view>
+</html>
