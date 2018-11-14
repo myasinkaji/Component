@@ -27,6 +27,7 @@
         <module>../core</module>
         <module>../generaldao</module>
         <module>../questionnaire</module>
+        <module>../notification</module>
     </modules>
 
 </project>

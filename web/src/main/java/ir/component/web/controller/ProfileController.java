@@ -17,7 +17,7 @@ public class ProfileController {
 
     static Map<String, String> themes = Collections.emptyMap();
 
-    private String theme = "bluesky";
+    private String theme = "omega";
 
     static {
         themes = new TreeMap<String, String>();
